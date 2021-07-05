@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>临时文件传输工具</title>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            color: white;
+            /* font-size: 50px; */
+            background-image:url("/www/img/bg.png");
+        }
+
+        .upload_dialog_div{
+            position:fixed;
+            left:0px;
+            right:0px;
+            top:0px;
+            bottom:0px;
+            overflow:auto; 
+            visibility:hidden;
+            background-color: rgba(60,60,60,0.5);
+            z-index:99;
+        }
+        .style_content_div{
+            position:relative;
+            margin:auto;
+            margin-top:160px;
+            width:400px;
+            height:160px;
+            background:#F5F5DC;
+            /*设置透明度*/
+            filter:alpha(opacity=70);
+            -moz-opacity:0.7;
+            opacity: 0.7;
+        }
+        .style_content_upper_div{
+            position:absolute;
+            left:0px;
+            top:0px;
+            width:400px;
+            height:100px;
+            background:#F5F5DC;
+        }
+        .style_content_lower_div{
+            position:absolute;
+            left:0px;
+            top:100px;
+            width:400px;
+            height:60px;
+            background:#F5FFDC;
+        }
+        
+        .style_content_file_div{
+            position:absolute;
+            left:15px;
+            top:20px;
+            width:380px;
+            height:60px;
+            color: #000;
+        }
+        .style_file_span{
+            float:left;
+            width:120px;
+            height:36px;
+            font-size:24px;
+            text-align:right;
+            color: black;
+        }
+        .style_file_content{
+            margin-top:5px;
+        }
+        .style_content_prog_div{
+            position:absolute;
+            left:18px;
+            top:57px;
+            width:360px;
+            height:40px;
+        }
+        .style_prog_span_hit{
+            color:#ff0000;
+        }
+        .style_prog_content{
+            width:360px;
+            visibility:hidden;
+        }
+        .style_content_span{
+            width:200px;
+            height:60px;
+            line-height:60px;
+            display:inline-block;
+            float:left;
+            font-size:32px;
+            text-align:center;
+            cursor: pointer;
+            color: black;
+            opacity: 0.3;
+        }
+        .style_content_span:hover{
+            opacity: 1;
+        }
+
+        .style_copyright_a{
+            text-decoration:none;
+            color:#cc00cc;
+        }
+
+    </style>
+
+    <script src="/www/js/jquery-3.6.0.min.js"></script>
+    <script src="/www/js/main.js"></script>
+
+</head>
+<body>
+    <p style="font-size: 10;">{{.path}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="style_copyright_a" href="javascript:void(0);" onclick="showUploadDialog()">上传文件</a></p>
+    
+    <ul>
+        {{.li}}
+    </ul>
+
+    <div id="upload_dialog" class="upload_dialog_div"> 
+        <div class="style_content_div">
+           <div class="style_content_upper_div">
+                 <div class="style_content_file_div">
+                      <span class="style_file_span"> 文件路径：</span>
+                      <!-- <input class="style_file_content" type="file" id="upload_file_id"/> -->
+                        <form id="file_form" action="/upload" enctype="multipart/form-data" method="POST">
+                            <!-- <input class="style_file_content" type="file" name="file" id="upload_file_id" accept="*" /> -->
+                            <input class="style_file_content" id="upload_file_id" type="file" name="file" multiple="multiple" accept="*"/>
+                            <button id="form_submit_btn" type="submit" style="visibility: hidden;">提交</button>
+                        </form>
+                 </div>
+                 <div class="style_content_prog_div">
+                      <span class="style_prog_span_hit" id="upload_tip_id"> 请选择要上传的文件 </span>
+                    <progress class="style_prog_content" id="upload_progress_id" value="0" max="100"></progress> 
+                 </div>
+           </div>
+           <div class="style_content_lower_div">
+                  <span class="style_content_span" onmouseover="this.style.background='#cccccc'" onmouseout="this.style.background=''" onclick="hideUploadDialog()">取消</span>
+                  <span class="style_content_span" onmouseover="this.style.background='#F5CCDC'" onmouseout="this.style.background=''" onclick="uploadFileToServer()">确定</span>
+           </div>
+     </div>
+</div>
+
+</body>
+</html>
