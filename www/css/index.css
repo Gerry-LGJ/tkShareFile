@@ -1,0 +1,149 @@
+
+
+html{ cursor: url("/www/img/cursor_img.png"),auto; }
+/*鼠标指针图案来自https://blog.csdn.net/renjingzhaozhao/article/details/105572433 */
+body {
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    color: white;
+    cursor: url("/www/img/cursor_img.png"), auto;
+    /* font-size: 50px; */
+    /* background-image:url("/www/img/bg.png"); */
+}
+a {
+    color: black;
+    cursor: url("/www/img/cursor_img.png"), auto;
+    text-decoration: none;
+    transition: 500ms;
+    background-image: linear-gradient(90deg, black, rgb(0, 238, 255), rgb(255, 0, 255));
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: 0 2px;
+}
+a:hover {
+    background-size: 100% 2px;
+    /* background-position: bottom right; */
+}
+button{ cursor: url("/www/img/cursor_img.png"), auto; }
+
+.bgvid {
+    position: fixed;
+    min-width: auto;
+    min-height: auto;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background: url("/www/img/bg.png") no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+
+.upload_dialog_div{
+    position:fixed;
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom:0px;
+    overflow:auto; 
+    visibility:hidden;
+    background-color: rgba(60,60,60,0.5);
+    z-index:99;
+}
+.style_content_div{
+    position:relative;
+    margin:auto;
+    margin-top:160px;
+    width:400px;
+    height:160px;
+    background:#F5F5DC;
+    /*设置透明度*/
+    filter:alpha(opacity=70);
+    -moz-opacity:0.7;
+    opacity: 0.7;
+}
+.style_content_upper_div{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:400px;
+    height:100px;
+    background:#F5F5DC;
+}
+.style_content_lower_div{
+    position:absolute;
+    left:0px;
+    top:100px;
+    width:400px;
+    height:60px;
+    background:#F5FFDC;
+}
+
+.style_content_file_div{
+    position:absolute;
+    left:15px;
+    top:20px;
+    width:380px;
+    height:60px;
+    color: #000;
+}
+.style_file_span{
+    float:left;
+    width:120px;
+    height:36px;
+    font-size:24px;
+    text-align:right;
+    color: black;
+}
+.style_file_content{
+    margin-top:5px;
+}
+.style_content_prog_div{
+    position:absolute;
+    left:18px;
+    top:57px;
+    width:360px;
+    height:40px;
+}
+.style_prog_span_hit{
+    color:#ff0000;
+}
+.style_prog_content{
+    width:360px;
+    visibility:hidden;
+}
+.style_content_span{
+    width:200px;
+    height:60px;
+    line-height:60px;
+    display:inline-block;
+    float:left;
+    font-size:32px;
+    text-align:center;
+    cursor: pointer;
+    color: black;
+    opacity: 0.3;
+    cursor: url("/www/img/cursor_img.png"), auto;
+}
+.style_content_span:hover{
+    opacity: 1;
+}
+
+.style_copyright_a{
+    text-decoration:none;
+    color:#cc00cc;
+}
+
+.footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    color: black;
+    font-size: 16px;
+}
