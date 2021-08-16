@@ -59,7 +59,7 @@ func RouteInit(r *gin.Engine, conf *Config) {
 
 // ReadFileInit, 读取配置文件// 参数：无// 返回值：//Config结构体信息
 func ReadFileInit() *Config {
-	data, err := ioutil.ReadFile("./config.json")
+	data, err := ioutil.ReadFile("./www/config.json")
 	CheckError(err, "The search for \"config.json\" failed.")
 	conf := Config{}
 	err = json.Unmarshal(data, &conf)

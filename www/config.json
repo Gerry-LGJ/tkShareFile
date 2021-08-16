@@ -1,0 +1,8 @@
+{
+    "port": 80,
+    "is_default_dir": true,
+    "share_dir": "./share",
+    "upload": true,
+    "download": true,
+    "player": true
+}
