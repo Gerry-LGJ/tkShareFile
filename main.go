@@ -193,3 +193,4 @@ func ExtractFromEnd(str string, c byte) (string, error) {
 		return "", errors.New(fmt.Sprintf("search for '%v' failed", c))
 	}
 }
+ 
