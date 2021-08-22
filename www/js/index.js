@@ -34,9 +34,26 @@ function uploadFileToServer() {
         form.append("file", file_obj);                                  //添加上传文件
         var xhr = new XMLHttpRequest();
         xhr.onload = function(e) {                                      // 添加上传成功后的回调函数
-            uploadTip.innerText = "上传成功";
-            uploadProgress.style.visibility = "hidden";                 // 上传后隐藏进度条
-            uploadProgress.value = 0;                                   // 进度条归零
+            if(xhr.readyState == 4 && xhr.status == 200) {
+                var responseObject = JSON.parse(xhr.responseText);
+                switch(responseObject["status"])
+                {
+                case 0:
+                    uploadTip.innerText = responseObject["msg"];
+                    uploadProgress.style.visibility = "hidden";                 // 上传后隐藏进度条
+                    uploadProgress.value = 0;                                   // 进度条归零
+                    break;
+                case 1:
+                    uploadTip.innerText = responseObject["msg"];
+                    uploadProgress.style.visibility = "hidden";
+                    uploadProgress.value = 0;
+                    break;
+                default:
+                    break;
+                }
+            } else {
+                uploadTip.innerText = "上传失败，或者您没有上传权限，请联系管理员。";
+            }
         };
         xhr.onerror =  function(e){ uploadTip.innerText = "上传失败，或者您没有上传权限，请联系管理员。"; }; // 上传失败后的回调函数
         xhr.upload.onprogress = function(e) { uploadProgress.value = e.loaded*100/e.total;}; // 添加 监听上传进度函数
@@ -60,6 +77,7 @@ function hideUploadDialog(){
     up_dialog.style.visibility = "hidden";                      // 隐藏上传窗口
 }
 
+//双击或单击a标签
 var clickNum = 0;
 var clickTimeId;
 function aTagOnClick(url) {
@@ -68,10 +86,11 @@ function aTagOnClick(url) {
         clickNum = 0;
         clearTimeout(clickTimeId);
         //新建一个窗口
-        window.open("/player?src=http://"+ String(window.location.host) + url, "newW",
+        /*window.open("/preview?src=http://"+ String(window.location.host) + url, "newW",
             "height=500,width=880,top=150,left=250,location=no,menubar=no,toolbar=no,status=no",
             //true                                                    // 替换浏览器的历史纪录
-        );
+        );*/
+        window.open("/preview?src=http://"+ String(window.location.host) + url);
         return
     }
     clickTimeId = setTimeout(function () {
@@ -82,7 +101,7 @@ function aTagOnClick(url) {
         a.href = url;
         a.click();
         $(a).remove();
-    }, 400);                                                        // 单击第一次在一定时间内再单击一次就算双击
+    }, 500);                                                        // 单击第一次在500ms内再单击一次就算双击
 }
 
 function aTagOnMouseOver(tip_str) {

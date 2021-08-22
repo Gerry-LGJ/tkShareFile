@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+    <title>{{.title}}</title>
+    <style>
+        html {
+            height: 100%;
+            display: block;
+        }
+        body {
+            margin: 0px;
+            background: #0e0e0e;
+            height: 100%;
+        }
+        img {
+            /* -webkit-user-select: none; */
+            margin: auto;
+            cursor: zoom-in;
+            background-color: hsl(0, 0%, 90%);
+            transition: background-color 300ms;
+
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            max-height: 100%;
+            max-width: 100%;
+        }
+    </style>
+    <script>
+        var bigImageFlag = false;
+        function enlarge_narrow() {
+            var imgObject = document.getElementById("preview_img");
+            if(!bigImageFlag) {
+                bigImageFlag = true;
+                imgObject.style.maxHeight = "500%";
+                imgObject.style.maxWidth = "500%";
+                imgObject.style.position = "relative";
+                imgObject.style.cursor = "zoom-out";
+            } else {
+                bigImageFlag = false;
+                imgObject.style.maxHeight = "100%";
+                imgObject.style.maxWidth = "100%";
+                imgObject.style.position = "absolute";
+                imgObject.style.cursor = "zoom-in";
+            }
+        }
+    </script>
+</head>
+<body>
+        <img id="preview_img" src={{.src}} onclick="enlarge_narrow()">
+</body>
+</html>

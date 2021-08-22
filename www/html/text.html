@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/www/css/github-dark-dimmed.min.css" />
+    <script src="/www/js/highlight.min.js"></script>
+    <script src="/www/js/highlightjs-line-numbers.min.js"></script>
+    <style>
+        code {
+            font-size: 18px;
+        }
+
+        .hljs-ln-numbers {
+            text-align: center;
+            color: #ccc;
+            border-right: 1px solid #999;
+            vertical-align: top;
+            padding-right: 10px !important;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .hljs-ln-code {
+            padding-left: 10px !important;
+        }
+    </style>
+
+    <script>
+        hljs.initHighlightingOnLoad(); // 初始化
+        // hljs.highlightAll();
+        hljs.initLineNumbersOnLoad();
+    </script>
+
+    <title>{{.title}}</title>
+</head>
+
+<body>
+    <pre><code>{{.content}}</code></pre>
+</body>
+
+</html>

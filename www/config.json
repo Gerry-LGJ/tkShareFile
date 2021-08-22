@@ -1,8 +1,40 @@
 {
+    "version": "0.3.1",
     "port": 80,
+    "index_html_title": "临时文件传输工具",
     "is_default_dir": true,
     "share_dir": "./share",
-    "upload": true,
-    "download": true,
-    "player": true
+    "transport_power": {
+        "upload": true,
+        "download": true,
+        "media": true,
+        "text": true,
+        "document": true
+    },
+    "media_type": {
+        "audio": [
+            ".mp3"
+        ],
+        "image": [
+            ".jpg",
+            ".png"
+        ],
+        "video": [
+            ".mp4"
+        ]
+    },
+    "text_type": [
+        ".txt",
+        ".html",
+        ".css",
+        ".js",
+        ".h",
+        ".c",
+        ".py",
+        ".go"
+    ],
+    "document_type": [
+        ".pdf",
+        "仅支持pdf,大佬可到gitee上反馈，小的感激不尽······"
+    ]
 }

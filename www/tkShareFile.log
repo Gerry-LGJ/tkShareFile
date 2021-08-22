@@ -1,0 +1,42 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] Loaded HTML Templates (9): 
+	- 
+	- document.html
+	- player.html
+	- index.html
+	- player.oldfile.html
+	- text.html
+	- error.html
+	- error.oldfile.html
+	- image.html
+
+[GIN-debug] GET    /www/img/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /www/img/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /www/js/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /www/js/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /www/css/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /www/css/*filepath        --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /www/file/*filepath       --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /www/file/*filepath       --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /www/pdfJs/*filepath      --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /www/pdfJs/*filepath      --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /shares/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /shares/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /                         --> main.RouteInit.func1 (4 handlers)
+[GIN-debug] GET    /favicon.ico              --> main.RouteInit.func2 (4 handlers)
+[GIN-debug] GET    /share/*url               --> tkShareFile/Transport.Index.func1 (4 handlers)
+[GIN-debug] POST   /upload                   --> tkShareFile/Transport.Upload.func1 (4 handlers)
+[GIN-debug] POST   /upload/uploadSmallFile   --> tkShareFile/Transport.UploadSmallFile.func1 (4 handlers)
+[GIN-debug] GET    /preview                  --> tkShareFile/Preview.Redirect.func1 (4 handlers)
+[GIN-debug] GET    /preview/media            --> tkShareFile/Preview.Media.func1 (4 handlers)
+[GIN-debug] GET    /preview/media/audio      --> tkShareFile/Preview.Audio.func1 (4 handlers)
+[GIN-debug] GET    /preview/media/image      --> tkShareFile/Preview.Image.func1 (4 handlers)
+[GIN-debug] GET    /preview/media/video      --> tkShareFile/Preview.Video.func1 (4 handlers)
+[GIN-debug] GET    /preview/text             --> tkShareFile/Preview.Text.func1 (4 handlers)
+[GIN-debug] GET    /preview/document         --> tkShareFile/Preview.Document.func1 (4 handlers)
+[GIN-debug] Listening and serving HTTP on :80

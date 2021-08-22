@@ -1,63 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- 套用谷歌浏览器的预览静态资源的代码 -->
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>{{.title}}</title>
-    <!-- 含中文的媒体文件名可能显示不正常，已修复 -->
     <style>
-        html{
-            cursor: url("/www/img/cursor_img.png"),auto;
-        }
-        body{
-            color: black;
-            text-align: center;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-attachment: fixed;
-            background-image: url("/www/img/player_bg.png");/*图片来自《请问您今天要来点兔子吗？》*/
-        }
-        a {
+        html {
+            display: block;
             cursor: url("/www/img/cursor_img.png"), auto;
-            text-decoration: none;
-            transition: 500ms;
-            background-image: linear-gradient(90deg, black, rgb(0, 238, 255), rgb(255, 0, 255));
-            background-repeat: no-repeat;
-            background-position: bottom left;
-            background-size: 0 2px;
         }
-        a:hover {
-            background-size: 100% 2px;
-            /* background-position: bottom right; */
+
+        body {
+            margin: 8px;
+            background-color: rgb(0, 0, 0);
         }
-        .footer {
-            text-align: center;
+
+        video {
             position: absolute;
-            bottom: 0;
-            width: 99%;
-            height: 50px;
-            font-size: 16px;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            max-height: 100%;
+            max-width: 100%;
+            margin: auto;
+            object-fit: contain;
+        }
+
+        .bgvid {
+            position: fixed;
+            min-width: auto;
+            min-height: auto;
+            width: 100%;
+            height: 100%;
+            z-index: -100;
+            background: url("/www/img/player_bg.png") no-repeat;
+            background-size: cover;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            visibility: {{.has_bgvid}};
         }
     </style>
     <script>
-        window.onload = function() {
-            document.getElementById("video").volume = 0.5;//刚开始的声音非常大，容易吓到人，所以调小了。
+        window.onload = function () {
+            var videoObject = document.getElementById("video");
+            videoObject.volume = 0.5;//刚开始的声音非常大，容易吓到人，所以调小了。
         }
     </script>
 </head>
+
 <body>
-    <video id="video" controls autoplay name="media" loop="loop" width="850px">
-        <source src="{{.src}}" type="{{.type}}">
-        <!-- mp3:audio/mpeg|mp4:video/mp4 -->
-        Your browser does not support the video tag.
+    
+    <video autoplay muted loop poster="/www/img/player_bg.png" class="bgvid"><source src="/www/img/player_bgvid.mp4" type="video/mp4"></video>
+    <video id="video" controls autoplay name="media">
+        <source id="file_src" src="{{.src}}" type="{{.type}}">
     </video>
-
-    <div class="footer">
-        Powered by <a href="https://gin-gonic.com/" target="_blank">Gin Web Framework</a> | 
-        <a href="https://gitee.com/Time--Chicken/tk-share-file" target="_blank">建议与反馈</a><br>
-        Copyright © 2021 <a href="https://gitee.com/Time--Chicken" target="_blank">TimeChicken.</a>
-    </div>
-
 </body>
+
 </html>
